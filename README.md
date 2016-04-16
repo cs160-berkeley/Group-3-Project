@@ -3,5 +3,5 @@ Group 3 Project
 
 ##Members
 Maya Angelica Hernandez <br />
-Simon Cao
+Simon Cao <br />
 Zach Hawtof
