@@ -1,23 +1,22 @@
 package com.example.group3.firststepsapp;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
-public class DetailView extends AppCompatActivity {
+public class FeedbackView extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_view);
+        setContentView(R.layout.activity_feedback_view);
 
-        ImageButton exitButton = (ImageButton) findViewById(R.id.imageButton2);
+        ImageButton exitButton = (ImageButton) findViewById(R.id.imageButton);
         exitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
@@ -30,18 +29,19 @@ public class DetailView extends AppCompatActivity {
 
         });
 
-        ImageButton feedBackButton = (ImageButton) findViewById(R.id.imageButton3);
-        feedBackButton.setOnClickListener(new View.OnClickListener() {
+        Button saveButton = (Button) findViewById(R.id.button);
+        saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
-                    Intent feedbackIntent = new Intent(getBaseContext(), FeedbackView.class);
-                    startActivity(feedbackIntent);
+                    finish();
                 }
-                catch (Exception e) {
+                catch (Exception e){
                     e.printStackTrace();
                 }
             }
+
         });
+
     }
 
 }

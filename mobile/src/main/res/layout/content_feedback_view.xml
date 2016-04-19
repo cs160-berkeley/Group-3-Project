@@ -5,24 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.group3.firststepsapp.DetailView"
-    tools:showIn="@layout/activity_detail_view">
-
+    tools:context="com.example.group3.firststepsapp.FeedbackView"
+    tools:showIn="@layout/activity_feedback_view">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/meeting_details"
-        android:scaleType="centerCrop"
+        android:id="@+id/imageView3"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentStart="true"
+        android:src="@drawable/feedback_form"
+        android:scaleType="centerCrop" />
 
     <ImageButton
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:id="@+id/imageButton2"
+        android:id="@+id/imageButton"
         android:background="@null"
         android:layout_alignParentStart="true"
         android:src="@drawable/exit"
@@ -30,16 +28,17 @@
         android:layout_marginTop="25dp"
         android:layout_marginLeft="25dp" />
 
-    <ImageButton
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:id="@+id/imageButton3"
-        android:layout_below="@+id/imageButton2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="95dp"
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SAVE"
+        android:id="@+id/button"
         android:background="@null"
-        android:src="@drawable/feedback_button"
-        android:scaleType="fitXY"
-        android:layout_marginLeft="17dp" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#FFFFFF" />
 
 </RelativeLayout>

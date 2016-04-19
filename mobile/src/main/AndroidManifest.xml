@@ -28,6 +28,10 @@
         <activity
             android:name=".DetailView"
             android:label="@string/title_activity_detail_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FeedbackView"
+            android:label="@string/title_activity_feedback_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
