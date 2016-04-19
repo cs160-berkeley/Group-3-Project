@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_explore"
+            android:icon="@drawable/maglass"
+            android:title="Explore Meetings"
+            android:checked="true"/>
+    </group>
+
+    <item android:title="Meetings">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_add"
+                    android:icon="@drawable/add"
+                    android:title="Add Meeting" />
+                <item
+                    android:id="@+id/nav_saved"
+                    android:icon="@drawable/saved"
+                    android:title="Saved Meetings" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Material">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_literature"
+                    android:icon="@drawable/literature"
+                    android:title="AA Literature" />
+                <item
+                    android:id="@+id/nav_reflection"
+                    android:icon="@drawable/reflection"
+                    android:title="Daily Reflections" />
+            </group>
+        </menu>
+    </item>
+
+
+</menu>
