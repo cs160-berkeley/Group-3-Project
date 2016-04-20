@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.group3.firststepsapp" >
+    package="com.example.group3.firststepsapp">
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -16,7 +16,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@android:style/Theme.DeviceDefault" >
+        android:theme="@android:style/Theme.DeviceDefault">
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -31,14 +31,32 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/app_name" >
+            android:name=".MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_main" />
+
+        <service android:name=".WatchToPhoneService" />
+        <!-- Listeners are special services that need to be declared like below, as BIND_LISTENER -->
+        <service android:name=".WatchListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".MapView"
+            android:label="@string/title_activity_map_view" />
+        <activity
+            android:name=".DetailView"
+            android:label="@string/title_activity_detail_view"></activity>
     </application>
 
 </manifest>

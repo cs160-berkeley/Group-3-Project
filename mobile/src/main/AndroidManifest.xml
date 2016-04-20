@@ -8,6 +8,7 @@
          location permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -36,7 +37,15 @@
         <activity
             android:name=".LiteratureView"
             android:label="@string/title_activity_literature_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service android:name=".PhoneToWatchService" />
+        <!-- Listeners are special services that need to be declared like below, as BIND_LISTENER -->
+        <service android:name=".PhoneListenerService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
