@@ -7,7 +7,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.group3.firststepsapp.MainActivity">
+    tools:context="com.example.group3.firststepsapp.MainActivity"
+    android:background="#000640">
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,13 +27,20 @@
         android:id="@+id/button"
         android:textSize="12dp"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_bg_stoke"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="My Meetings"
         android:id="@+id/button2"
         android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_bg_stoke"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp" />
 </RelativeLayout>
