@@ -41,7 +41,26 @@ public class PhoneListenerService extends WearableListenerService {
 
             Context context = getApplicationContext();
             Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
-            sendIntent.putExtra("location", "location");
+            sendIntent.putExtra("extra", "location");
+            startService(sendIntent);
+        }
+        else if (message.equalsIgnoreCase("meetings")) {
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, "Fetching All Saved Meetings", duration);
+                    toast.show();
+                }
+            });
+
+            Context context = getApplicationContext();
+            Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+            sendIntent.putExtra("extra", "meetings");
             startService(sendIntent);
         }
         else if (message.equalsIgnoreCase("directions")) {
@@ -75,22 +94,22 @@ public class PhoneListenerService extends WearableListenerService {
             });
         }
 
-//        System.out.println("GOT MESSAGE");
-//
-//            // Value contains the String we sent over in WatchToPhoneService, "good job"
-//            String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
-//
-//            // Make a toast with the String
-//            Context context = getApplicationContext();
-//            int duration = Toast.LENGTH_SHORT;
-//
-//            Toast toast = Toast.makeText(context, value, duration);
-//            toast.show();
-//
-//            // so you may notice this crashes the phone because it's
-//            //''sending message to a Handler on a dead thread''... that's okay. but don't do this.
-//            // replace sending a toast with, like, starting a new activity or something.
-//            // who said skeleton code is untouchable? #breakCSconceptions
+        else if (message.equalsIgnoreCase("alert")) {
+            // create a handler to post messages to the main thread
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.post(new Runnable() {
+
+                @Override
+                public void run() {
+                    Context context = getApplicationContext();
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, "Toggle Alert", duration);
+                    toast.show();
+                }
+            });
+        }
+
 
     }
 }

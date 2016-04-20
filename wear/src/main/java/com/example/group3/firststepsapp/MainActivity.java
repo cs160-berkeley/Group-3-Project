@@ -22,6 +22,16 @@ public class MainActivity extends Activity {
                 startService(sendIntent);
             }
         });
+
+        Button myMeetings = (Button) findViewById(R.id.button2);
+        myMeetings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
+                sendIntent.putExtra("extra", "meetings");
+                startService(sendIntent);
+            }
+        });
     }
 
 }

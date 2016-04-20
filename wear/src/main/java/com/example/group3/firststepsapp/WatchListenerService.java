@@ -19,9 +19,15 @@ public class WatchListenerService extends WearableListenerService {
         Log.d("T", "in WatchListenerService, got: " + messageEvent.getPath());
         //use the 'path' field in sendmessage to differentiate use cases
         //(here, fred vs lexy)
-        String message = messageEvent.getPath();
+        String message = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+
         if (message.equalsIgnoreCase("location")) {
             Intent intent = new Intent(this, MapView.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        else if (message.equalsIgnoreCase("meetings")) {
+            Intent intent = new Intent(this, MeetingsView.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }

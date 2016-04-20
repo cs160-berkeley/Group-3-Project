@@ -56,7 +56,10 @@
             android:label="@string/title_activity_map_view" />
         <activity
             android:name=".DetailView"
-            android:label="@string/title_activity_detail_view"></activity>
+            android:label="@string/title_activity_detail_view" />
+        <activity
+            android:name=".MeetingsView"
+            android:label="@string/title_activity_meetings_view"></activity>
     </application>
 
 </manifest>

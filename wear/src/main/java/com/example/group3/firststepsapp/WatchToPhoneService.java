@@ -67,6 +67,12 @@ public class WatchToPhoneService extends Service {
         else if (send.equalsIgnoreCase("save")) {
             string = send;
         }
+        else if (send.equalsIgnoreCase("alert")) {
+            string = send;
+        }
+        else if (send.equalsIgnoreCase("meetings")) {
+            string = send;
+        }
 
         final String stringToSend = string;
 
