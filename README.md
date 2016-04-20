@@ -5,4 +5,5 @@ Group 3 Project
 Maya Angelica Hernandez <br />
 Simon Cao <br />
 Zach Hawtof <br />
-Ryan Kapur
+Ryan Kapur <br />
+Hector Gonzalez
