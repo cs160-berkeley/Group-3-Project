@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class FeedbackView extends AppCompatActivity {
 
@@ -33,6 +34,7 @@ public class FeedbackView extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
+                    Toast.makeText(getBaseContext(), "Feedback Recorded!", Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 catch (Exception e){

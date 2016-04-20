@@ -32,6 +32,10 @@
         <activity
             android:name=".FeedbackView"
             android:label="@string/title_activity_feedback_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LiteratureView"
+            android:label="@string/title_activity_literature_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
