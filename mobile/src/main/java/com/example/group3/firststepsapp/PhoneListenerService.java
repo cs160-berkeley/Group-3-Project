@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Looper;
@@ -14,6 +15,7 @@ import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Locale;
 import java.util.Objects;
 import android.os.Handler;
 
@@ -65,18 +67,23 @@ public class PhoneListenerService extends WearableListenerService {
         }
         else if (message.equalsIgnoreCase("directions")) {
             // create a handler to post messages to the main thread
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
+//            Handler handler = new Handler(Looper.getMainLooper());
+//            handler.post(new Runnable() {
+//
+//                @Override
+//                public void run() {
+//                    Context context = getApplicationContext();
+//                    int duration = Toast.LENGTH_SHORT;
+//
+//                    Toast toast = Toast.makeText(context, "Get Directions From Google Maps", duration);
+//                    toast.show();
+//                }
+//            });
 
-                @Override
-                public void run() {
-                    Context context = getApplicationContext();
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, "Get Directions From Google Maps", duration);
-                    toast.show();
-                }
-            });
+            String uri = String.format(Locale.ENGLISH, "geo:%f,%f", 37.85, -122.25);
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
         else if (message.equalsIgnoreCase("save")) {
             // create a handler to post messages to the main thread

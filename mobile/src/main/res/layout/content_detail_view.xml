@@ -42,4 +42,16 @@
         android:scaleType="fitXY"
         android:layout_marginLeft="17dp" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meeting Doesn&apos;t Exist"
+        android:id="@+id/button2"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:background="@null"
+        android:layout_marginRight="10dp"
+        android:textColor="#2F80ED" />
+
 </RelativeLayout>

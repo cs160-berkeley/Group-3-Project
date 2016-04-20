@@ -8,7 +8,9 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class DetailView extends AppCompatActivity {
 
@@ -36,6 +38,18 @@ public class DetailView extends AppCompatActivity {
                 try {
                     Intent feedbackIntent = new Intent(getBaseContext(), FeedbackView.class);
                     startActivity(feedbackIntent);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Button existButton = (Button) findViewById(R.id.button2);
+        existButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                try {
+                    Toast.makeText(getBaseContext(), "Doesn't Exist Recorded", Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e) {
                     e.printStackTrace();
