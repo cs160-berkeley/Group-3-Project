@@ -138,17 +138,6 @@ public class MainActivity extends AppCompatActivity
             getSupportActionBar().setTitle(title);
         }
 
-//        if (id == R.id.nav_explore) {
-//            // Handle the camera action
-//        } else if (id == R.id.nav_add) {
-//
-//        } else if (id == R.id.nav_saved) {
-//
-//        } else if (id == R.id.nav_literature) {
-//
-//        } else if (id == R.id.nav_reflection) {
-//
-//        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

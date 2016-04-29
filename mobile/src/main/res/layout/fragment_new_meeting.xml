@@ -1,18 +1,11 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.group3.firststepsapp.NewMeetingFrag">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView4"
-        android:layout_gravity="left|top"
-        android:src="@drawable/add_meeting"
-        android:scaleType="fitStart" />
+    <!-- TODO: Update blank fragment layout -->
 
     <Button
         android:layout_width="wrap_content"
@@ -22,5 +15,152 @@
         android:layout_gravity="center_horizontal|bottom"
         android:background="#000640"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="20dp" />
-</FrameLayout>
+        android:layout_below="@+id/UnderLine5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:hint="Enter Name of AA Meeting"
+        android:paddingLeft="20dp"
+        android:background="@null"
+        android:textSize="14dp"
+        android:lines="1" />
+    <View
+        android:id="@+id/UnderLine"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:background="#D0D0D0"
+        android:layout_marginTop="-2dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/editText2"
+        android:layout_below="@+id/UnderLine"
+        android:layout_alignStart="@+id/UnderLine"
+        android:background="@null"
+        android:hint="Enter Day and Time"
+        android:paddingLeft="60dp"
+        android:textSize="14dp"
+        android:lines="1" />
+
+    <View
+        android:id="@+id/UnderLine2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/editText2"
+        android:layout_centerHorizontal="true"
+        android:background="#D0D0D0"
+        android:layout_marginTop="-2dp" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/imageView4"
+        android:layout_below="@+id/UnderLine"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:src="@drawable/time" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/editText3"
+        android:layout_below="@+id/UnderLine2"
+        android:layout_alignParentStart="true"
+        android:hint="Enter Address"
+        android:textSize="14dp"
+        android:paddingLeft="60dp"
+        android:background="@null"
+        android:lines="1" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/imageView11"
+        android:src="@drawable/place"
+        android:layout_below="@+id/UnderLine2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12.5dp" />
+
+    <View
+        android:id="@+id/UnderLine3"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/editText3"
+        android:layout_centerHorizontal="true"
+        android:background="#D0D0D0"
+        android:layout_marginTop="-2dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/editText4"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="60dp"
+        android:hint="Estimated Age Range"
+        android:textSize="14dp"
+        android:background="@null"/>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/imageView12"
+        android:layout_below="@+id/editText3"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/age"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="15dp" />
+
+    <View
+        android:id="@+id/UnderLine4"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/editText4"
+        android:layout_centerHorizontal="true"
+        android:background="#D0D0D0"
+        android:layout_marginTop="-2dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/editText5"
+        android:layout_below="@+id/UnderLine4"
+        android:layout_alignParentStart="true"
+        android:background="@null"
+        android:hint="Enter Estimated Number of People"
+        android:textSize="14dp"
+        android:paddingLeft="60dp" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/imageView13"
+        android:layout_below="@+id/editText4"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/group"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp" />
+
+    <View
+        android:id="@+id/UnderLine5"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/editText5"
+        android:layout_centerHorizontal="true"
+        android:background="#D0D0D0"
+        android:layout_marginTop="-2dp" />
+
+
+
+</RelativeLayout>

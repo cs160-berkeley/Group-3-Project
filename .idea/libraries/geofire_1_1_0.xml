@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="geofire-1.1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/geofire/1.1.0/d746bd9d89641dc841d2299c59d6e9a9eb8e98e9/geofire-1.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.firebase/geofire/1.1.0/bba26df4157f44379c7adaa78e1457e7a717b498/geofire-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
