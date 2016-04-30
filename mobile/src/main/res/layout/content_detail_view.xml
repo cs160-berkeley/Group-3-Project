@@ -143,7 +143,7 @@
         android:textSize="15dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
@@ -153,6 +153,44 @@
         android:layout_alignEnd="@+id/button2"
         android:textSize="20dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:textAlignment="textEnd"
+        android:layout_marginLeft="20dp" />
+
+    <ToggleButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/toggleButton"
+        android:layout_above="@+id/textView9"
+        android:layout_alignParentEnd="true"
+        android:background="@layout/saved"
+        android:checked="false"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
+        android:textOff=""
+        android:textOn=""/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/imageView3"
+        android:layout_below="@+id/imageView10"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/adjectives" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView13"
+        android:layout_alignTop="@+id/imageView3"
+        android:layout_toEndOf="@+id/imageView3"
+        android:layout_marginLeft="10dp"
+        android:textSize="15dp"
+        android:textColor="#000000"
+        android:layout_marginRight="20dp" />
 
 </RelativeLayout>

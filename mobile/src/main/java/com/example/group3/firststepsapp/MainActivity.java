@@ -3,6 +3,7 @@ package com.example.group3.firststepsapp;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MapView.OnFragmentInteractionListener, SavedMeetings.OnFragmentInteractionListener, NewMeetingFrag.OnFragmentInteractionListener,
                     AALiteratureFrag.OnFragmentInteractionListener, DailyReflectionFrag.OnFragmentInteractionListener, ListFrag.OnFragmentInteractionListener {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        openOrCreateDatabase("Saved_Meetings",MODE_PRIVATE,null);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -118,14 +123,12 @@ public class MainActivity extends AppCompatActivity
                 title = "Add New Meetings";
                 break;
             case R.id.nav_literature:
-                tx.replace(R.id.content_frame, new AALiteratureFrag());
-                tx.commit();
-                title = "AA Literature";
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.aa.org/pages/en_US/aa-literature"));
+                startActivity(browserIntent);
                 break;
             case R.id.nav_reflection:
-                tx.replace(R.id.content_frame, new DailyReflectionFrag());
-                tx.commit();
-                title = "Daily Reflection";
+                Intent dailyIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.aa.org/pages/en_US/daily-reflection"));
+                startActivity(dailyIntent);
                 break;
             default:
                 tx.replace(R.id.content_frame, new MapView());

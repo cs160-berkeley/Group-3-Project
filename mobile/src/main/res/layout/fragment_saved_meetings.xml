@@ -1,17 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:background="#FFFFFF">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.group3.firststepsapp.SavedMeetings">
+    android:layout_height="wrap_content"
+    tools:context="com.example.group3.firststepsapp.SavedMeetings"
+    android:orientation="vertical"
+    android:id="@+id/saved_list">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_gravity="center_horizontal|top"
-        android:src="@drawable/saved_meetings"
-        android:scaleType="fitStart"
-        android:background="@null" />
-</FrameLayout>
+</LinearLayout>
+    </ScrollView>

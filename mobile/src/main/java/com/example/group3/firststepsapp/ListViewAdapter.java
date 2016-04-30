@@ -25,6 +25,8 @@ public class ListViewAdapter extends BaseAdapter {
     private ArrayList<Double> distance;
     private ArrayList<String> favorite;
     private Context context;
+    private static int id = 0;
+    private int listId;
 
     public ListViewAdapter(Context context, ArrayList<String> name, ArrayList<String> address, ArrayList<String> time, ArrayList<Double> distance, ArrayList<String> favorite) {
         this.context = context;
@@ -33,6 +35,8 @@ public class ListViewAdapter extends BaseAdapter {
         this.time = time;
         this.distance = distance;
         this.favorite = favorite;
+        this.listId = id;
+        id++;
     }
 
     @Override
@@ -64,6 +68,10 @@ public class ListViewAdapter extends BaseAdapter {
     @Override
     public Object getItem(int position) {
         return null;
+    }
+
+    public int getId() {
+        return listId;
     }
 
 }

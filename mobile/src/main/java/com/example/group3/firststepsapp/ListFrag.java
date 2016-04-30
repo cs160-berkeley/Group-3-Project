@@ -35,6 +35,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+
+import static java.util.Collections.*;
 
 
 /**
@@ -55,14 +60,19 @@ public class ListFrag extends Fragment implements GoogleApiClient.ConnectionCall
     private String mParam1;
     private String mParam2;
 
-    GoogleApiClient mGoogleApiClient;
-    Location mLastLocation;
-    LinearLayout listView;
+    private GoogleApiClient mGoogleApiClient;
+    private Location mLastLocation;
+    private LinearLayout listView;
 
     private Firebase myFirebaseRef;
     private Firebase geoFireRef;
     private Firebase meetings;
     private GeoFire geoFire;
+
+    private HashMap<String, String> listMeetings = new HashMap<String, String>();
+    private HashMap<String, View> hashMeeting = new HashMap<String, View>();
+
+    private ArrayList<MeetingHashSort> distanceArray = new ArrayList<MeetingHashSort>();
 
 
 
@@ -117,6 +127,26 @@ public class ListFrag extends Fragment implements GoogleApiClient.ConnectionCall
                     .addApi(LocationServices.API)
                     .build();
         }
+        // can't sort async
+
+
+//        Collections.sort(distanceArray, new Comparator<MeetingHashSort>() {
+//            @Override
+//            public int compare(MeetingHashSort o1, MeetingHashSort o2) {
+//                return o1.compareTo(o2);
+//            }
+//        });
+//        for (int i = 0; i < distanceArray.size(); i++) {
+//            View meetingView = hashMeeting.get(distanceArray.get(i).getHash());
+//            listView.addView(meetingView);
+//            View v = new View(getContext());
+//            v.setLayoutParams(new LinearLayout.LayoutParams(
+//                    LinearLayout.LayoutParams.MATCH_PARENT,
+//                    5
+//            ));
+//            v.setBackgroundColor(Color.parseColor("#D0D0D0"));
+//            listView.addView(v);
+//        }
 
         return view;
     }
@@ -157,12 +187,6 @@ public class ListFrag extends Fragment implements GoogleApiClient.ConnectionCall
         final Location finalCurrentLocation = currentLocation;
         geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
 
-        private ArrayList<String> name = new ArrayList<String>();
-        private ArrayList<String> address = new ArrayList<String>();
-        private ArrayList<String> time = new ArrayList<String>();
-        private ArrayList<Double> distances = new ArrayList<Double>();
-        private ArrayList<String> favorite = new ArrayList<String>();
-
             @Override
             public void onKeyEntered(String key, GeoLocation location) {
 
@@ -173,16 +197,15 @@ public class ListFrag extends Fragment implements GoogleApiClient.ConnectionCall
                 newLocation.setLatitude(latitude);
                 newLocation.setLongitude(longitude);
                 final float distance = round((float) ((finalCurrentLocation.distanceTo(newLocation)/1000)/1.6), 1);
+                final String listKey = key;
 
 
                 specificMeeting.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Meeting meeting = dataSnapshot.getValue(Meeting.class);
-                        name.add(meeting.getName());
-                        time.add(meeting.getTime());
-                        address.add(meeting.getAddress());
                         View adapter = getLayoutInflater(connectionHint).inflate(R.layout.fragment_list_view_adapter, null);
+
                         TextView nameView = (TextView) adapter.findViewById(R.id.textView);
                         TextView addressView = (TextView) adapter.findViewById(R.id.textView2);
                         TextView timeView = (TextView) adapter.findViewById(R.id.textView3);
@@ -192,6 +215,23 @@ public class ListFrag extends Fragment implements GoogleApiClient.ConnectionCall
                         addressView.setText(meeting.getAddress());
                         timeView.setText(meeting.getTime());
                         distanceView.setText(distance + " mi");
+
+                        listMeetings.put(adapter.hashCode() + "", listKey);
+
+                        adapter.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                String key = listMeetings.get(v.hashCode() + "");
+                                Intent detailIntent = new Intent(getContext(), DetailView.class);
+                                detailIntent.putExtra("key", key);
+                                startActivity(detailIntent);
+                            }
+                        });
+
+                        hashMeeting.put(adapter.hashCode() + "", adapter);
+
+//                        distanceArray.add(new MeetingHashSort(adapter.hashCode() + "", distance));
+
 
                         listView.addView(adapter);
                         View v = new View(getContext());

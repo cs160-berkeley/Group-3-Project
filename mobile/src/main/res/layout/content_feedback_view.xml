@@ -9,13 +9,27 @@
     tools:showIn="@layout/activity_feedback_view">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:id="@+id/imageView2"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:src="@drawable/feedback_form"
-        android:scaleType="centerCrop" />
+        android:layout_centerHorizontal="true"
+        android:background="#000640" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/textView9"
+        android:textColor="#FFFFFF"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_alignEnd="@+id/button2"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="textEnd"
+        android:layout_marginLeft="20dp" />
 
     <ImageButton
         android:layout_width="20dp"
@@ -41,4 +55,290 @@
         android:layout_marginRight="10dp"
         android:textColor="#FFFFFF" />
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentStart="true">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignParentStart="true">
+
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="Age Range of Group"
+    android:id="@+id/textView10"
+    android:layout_below="@+id/imageView2"
+    android:layout_alignParentStart="true"
+    android:textColor="#000000"
+    android:textSize="16dp"
+    android:textAlignment="center"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp" />
+
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="58dp"
+    android:orientation="horizontal"
+    android:layout_alignParentStart="true"
+    android:id="@+id/radio1"
+    android:layout_below="@+id/textView10">
+
+    <ToggleButton
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton0"
+        android:background="@layout/feedback_values"
+        android:checked="false"
+        android:textColor="@layout/button_colors"
+        android:textOff="Under 30"
+        android:textOn="Under 30"
+        android:layout_weight="1" />
+
+    <ToggleButton
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton1"
+        android:layout_weight="1"
+        android:background="@layout/feedback_values"
+        android:textOff="30 - 60"
+        android:textOn="30 - 60"
+        android:checked="false"
+        android:textColor="@layout/button_colors" />
+
+    <ToggleButton
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton2"
+        android:layout_weight="1"
+        android:background="@layout/feedback_values"
+        android:textOff="Over 60"
+        android:textOn="Over 60"
+        android:checked="false"
+        android:textColor="@layout/button_colors" />
+
+</RadioGroup>
+
+<TextView
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceMedium"
+    android:text="Number of Attendees"
+    android:id="@+id/textView11"
+    android:layout_below="@+id/radio1"
+    android:layout_alignParentStart="true"
+    android:textColor="#000000"
+    android:textSize="16dp"
+    android:textAlignment="center"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp" />
+
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="58dp"
+    android:orientation="horizontal"
+    android:layout_below="@+id/textView11"
+    android:layout_alignParentStart="true"
+    android:id="@+id/radio2">
+
+    <ToggleButton
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton3"
+        android:background="@layout/feedback_values"
+        android:checked="false"
+        android:textColor="@layout/button_colors"
+        android:textOff="Under 30"
+        android:textOn="Under 30"
+        android:layout_weight="1" />
+
+    <ToggleButton
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton4"
+        android:layout_weight="1"
+        android:background="@layout/feedback_values"
+        android:textOff="30 - 60"
+        android:textOn="30 - 60"
+        android:checked="false"
+        android:textColor="@layout/button_colors" />
+
+    <ToggleButton
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton5"
+        android:layout_weight="1"
+        android:background="@layout/feedback_values"
+        android:textOff="Over 60"
+        android:textOn="Over 60"
+        android:checked="false"
+        android:textColor="@layout/button_colors" />
+
+</RadioGroup>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Describe the Meeting"
+            android:id="@+id/textView12"
+            android:layout_below="@+id/radio2"
+            android:layout_alignParentStart="true"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textAlignment="center" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/textView12"
+            android:layout_alignParentStart="true"
+            android:id="@+id/radio3">
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton6"
+                android:background="@layout/feedback_values"
+                android:checked="false"
+                android:textColor="@layout/button_colors"
+                android:textOff="Engaging"
+                android:textOn="Engaging"
+                android:layout_weight="1" />
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton7"
+                android:layout_weight="1"
+                android:background="@layout/feedback_values"
+                android:textOff="Respectful"
+                android:textOn="Respectful"
+                android:checked="false"
+                android:textColor="@layout/button_colors" />
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton8"
+                android:layout_weight="1"
+                android:background="@layout/feedback_values"
+                android:textOff="Spacious"
+                android:textOn="Spacious"
+                android:checked="false"
+                android:textColor="@layout/button_colors" />
+
+        </RadioGroup>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/radio3"
+            android:layout_alignParentStart="true"
+            android:id="@+id/radio4"
+            android:layout_marginTop="-3dp">
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton9"
+                android:background="@layout/feedback_values"
+                android:checked="false"
+                android:textColor="@layout/button_colors"
+                android:textOff="Organized"
+                android:textOn="Organized"
+                android:layout_weight="1" />
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton10"
+                android:layout_weight="1"
+                android:background="@layout/feedback_values"
+                android:textOff="Energetic"
+                android:textOn="Energetic"
+                android:checked="false"
+                android:textColor="@layout/button_colors" />
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton11"
+                android:layout_weight="1"
+                android:background="@layout/feedback_values"
+                android:textOff="Enthusiastic"
+                android:textOn="Enthusiastic"
+                android:checked="false"
+                android:textColor="@layout/button_colors" />
+
+        </RadioGroup>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:orientation="horizontal"
+            android:layout_below="@+id/radio4"
+            android:layout_alignParentStart="true"
+            android:id="@+id/radio5"
+            android:layout_marginTop="-4.5dp">
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton12"
+                android:background="@layout/feedback_values"
+                android:checked="false"
+                android:textColor="@layout/button_colors"
+                android:textOff="Resourceful"
+                android:textOn="Resourceful"
+                android:layout_weight="1" />
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton13"
+                android:layout_weight="1"
+                android:background="@layout/feedback_values"
+                android:textOff="Supportive"
+                android:textOn="Supportive"
+                android:checked="false"
+                android:textColor="@layout/button_colors" />
+
+            <ToggleButton
+                android:layout_width="100dp"
+                android:layout_height="54dp"
+                android:text="New ToggleButton"
+                android:id="@+id/toggleButton14"
+                android:layout_weight="1"
+                android:background="@layout/feedback_values"
+                android:textOff="Helpful"
+                android:textOn="Helpful"
+                android:checked="false"
+                android:textColor="@layout/button_colors" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
