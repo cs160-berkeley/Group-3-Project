@@ -16,6 +16,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "Meetings.db";
     public static final String MEETINGS_TABLE_NAME = "saved_meetings";
     public static final String MEETINGS_COLUMN_KEY = "key";
+    public static final String NAME_COLUMN_KEY = "name";
+    public static final String ADDRESS_COLUMN_KEY = "address";
+    public static final String TIME_COLUMN_KEY = "time";
+    public static final String AGE_COLUMN_KEY = "age";
+    public static final String NUMPEOPLE_COLUMN_KEY = "numpeople";
     private HashMap hp;
 
     public DBHelper(Context context)
@@ -26,9 +31,10 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
+        
         db.execSQL(
                 "create table meetings " +
-                        "(key integer primary key)"
+                        "(key integer primary key,name text,address text,time text,age text,numpeople text)"
         );
     }
 
@@ -39,11 +45,16 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact(int key)
+    public boolean insertContact(int key, String name, String address, String time, String age, String numpeople)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("key", key);
+        contentValues.put("name", name);
+        contentValues.put("address", address);
+        contentValues.put("time", time);
+        contentValues.put("age", age);
+        contentValues.put("numpeople", numpeople);
         db.insert("meetings", null, contentValues);
         return true;
     }
@@ -68,9 +79,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
-    public ArrayList<Integer> getAllSavedMeetings()
+    public ArrayList<MeetingDB> getAllSavedMeetings()
     {
-        ArrayList<Integer> array_list = new ArrayList<Integer>();
+        ArrayList<MeetingDB> array_list = new ArrayList<MeetingDB>();
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -78,7 +89,13 @@ public class DBHelper extends SQLiteOpenHelper {
         res.moveToFirst();
 
         while(!res.isAfterLast()){
-            array_list.add(res.getInt(res.getColumnIndex(MEETINGS_COLUMN_KEY)));
+            MeetingDB newMeeting = new MeetingDB(res.getInt(res.getColumnIndex(MEETINGS_COLUMN_KEY)) + "",
+                    res.getString(res.getColumnIndex(NAME_COLUMN_KEY)),
+                    res.getString(res.getColumnIndex(ADDRESS_COLUMN_KEY)),
+                    res.getString(res.getColumnIndex(TIME_COLUMN_KEY)),
+                    res.getString(res.getColumnIndex(AGE_COLUMN_KEY)),
+                    res.getString(res.getColumnIndex(NUMPEOPLE_COLUMN_KEY)));
+            array_list.add(newMeeting);
             res.moveToNext();
         }
         return array_list;

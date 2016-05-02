@@ -31,6 +31,7 @@ import com.google.android.gms.vision.barcode.Barcode;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -120,13 +121,30 @@ public class NewMeetingFrag extends Fragment {
                     final String address = addressView.getText().toString();
                     String age = ageView.getText().toString();
                     String group = groupView.getText().toString();
+                    HashMap<String, Integer> ageHash = new HashMap<String, Integer>();
+                    HashMap<String, Integer> groupHash = new HashMap<String, Integer>();
+                    HashMap<String, Integer> descriptionsHash = new HashMap<String, Integer>();
 
-                    if (age.equalsIgnoreCase("")) {
-                        age = "Unknown";
-                    }
-                    if (group.equalsIgnoreCase("")) {
-                        group = "Unknown";
-                    }
+
+
+                    ageHash.put("Under 30", 0);
+                    ageHash.put("30 - 60", 0);
+                    ageHash.put("Over 60", 0);
+
+                    groupHash.put("Under 30", 0);
+                    groupHash.put("30 - 60", 0);
+                    groupHash.put("Over 60", 0);
+
+                    descriptionsHash.put("Energetic", 0);
+                    descriptionsHash.put("Engaging", 0);
+                    descriptionsHash.put("Enthusiastic", 0);
+                    descriptionsHash.put("Helpful", 0);
+                    descriptionsHash.put("Organized", 0);
+                    descriptionsHash.put("Resourceful", 0);
+                    descriptionsHash.put("Respectful", 0);
+                    descriptionsHash.put("Spacious", 0);
+                    descriptionsHash.put("Supportive", 0);
+
                     if (name.equalsIgnoreCase("")) {
                         Toast.makeText(getContext(), "Please Enter Name", Toast.LENGTH_SHORT).show();
                         return;
@@ -140,8 +158,9 @@ public class NewMeetingFrag extends Fragment {
                         return;
                     }
 
-                    final String finalAge = age;
-                    final String finalGroup = group;
+                    final HashMap<String, Integer> finalAge = ageHash;
+                    final HashMap<String, Integer> finalGroup = groupHash;
+                    final HashMap<String, Integer> finalDescription = descriptionsHash;
 
                     final LatLng currentLatLng = getLatLngFromAddress(address);
 
@@ -156,6 +175,7 @@ public class NewMeetingFrag extends Fragment {
                             newMeetingRef.child("time").setValue(time);
                             newMeetingRef.child("averageAge").setValue(finalAge);
                             newMeetingRef.child("numberOfAttendees").setValue(finalGroup);
+                            newMeetingRef.child("descriptions").setValue(finalDescription);
 
                             geoFire.setLocation(nextMeetingNum + "", new GeoLocation(currentLatLng.latitude, currentLatLng.longitude));
 

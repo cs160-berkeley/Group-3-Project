@@ -1,2 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.1.1_b4966cbe974782ac6e0d7908138755e817c0f8f8/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/7.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-7.0.0_f0eaaa8fc2cacce6b797f7ede2ba717f6c139cab/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.0.1_cfc31dfee5d34ac16128dafcdbd2f35b01045a19/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ad82e2cbd84986b11b57f5e1e8b8ca6b7f93f2fa">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_e060776987a9a33f83de9036c3d5627990347797/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/7.0.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-wearable-7.0.0_06e0804638eee3eb4fc495447633a1013e7f6413/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/exploded-aar/com.google.android.support/wearable/1.4.0/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="40a6fbd08fdbb71c74751916201e5fd8694e16ca">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.support-wearable-1.4.0_3cb3bfdaa29d56941d130b5535be15b28e2dc456/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.1.1_bb31f0c986abf65985d111eb814e3b0ed9775224/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.1.1_34e8434394db027a28d32dd64c4351eb6c3a9724/classes.dex" />
+    </item>
+    <item
+        jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3c12552843e20a2f3fd721b41a9a22116bc33780">
+        <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_43e01dc48b4574c0d6b54bc2ca6fa937cad1c1f1/classes.dex" />
+    </item>
+
+</items>

@@ -21,13 +21,16 @@ public class WatchListenerService extends WearableListenerService {
         //(here, fred vs lexy)
         String message = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
-        if (message.equalsIgnoreCase("location")) {
-            Intent intent = new Intent(this, MapView.class);
+        if (messageEvent.getPath().equals("meetings")) {
+            Intent intent = new Intent(this, MeetingsView.class);
+            intent.putExtra("meetings", message);
+            System.out.println(message);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-        else if (message.equalsIgnoreCase("meetings")) {
-            Intent intent = new Intent(this, MeetingsView.class);
+
+        if (message.equalsIgnoreCase("location")) {
+            Intent intent = new Intent(this, MapView.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }

@@ -62,7 +62,7 @@ public class WatchToPhoneService extends Service {
             string = send;
         }
         else if (send.equalsIgnoreCase("directions")) {
-            string = send;
+            string = "directions/" + intent.getStringExtra("uri");
         }
         else if (send.equalsIgnoreCase("save")) {
             string = send;

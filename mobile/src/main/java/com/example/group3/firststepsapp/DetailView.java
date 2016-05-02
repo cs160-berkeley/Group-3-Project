@@ -31,6 +31,8 @@ public class DetailView extends AppCompatActivity {
     Firebase myFirebaseRef;
     private DBHelper mydb;
 
+    private Meeting currentMeeting;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +62,7 @@ public class DetailView extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Meeting meeting = dataSnapshot.getValue(Meeting.class);
+                currentMeeting = meeting;
                 TextView addressView = (TextView) findViewById(R.id.textView5);
                 TextView timeView = (TextView) findViewById(R.id.textView6);
                 TextView averageAgeView = (TextView) findViewById(R.id.textView7);
@@ -71,8 +74,18 @@ public class DetailView extends AppCompatActivity {
                 titleView.setText(meeting.getName());
                 addressView.setText(meeting.getAddress());
                 timeView.setText(meeting.getTime());
-                numberOfAttendeesView.setText(meeting.getNumberOfAttendees() + " Attendees");
-                averageAgeView.setText(meeting.getAverageAge() + " Years Old");
+                if (!meeting.getNumberOfAttendees().equalsIgnoreCase("Not Enough Feedback")) {
+                    numberOfAttendeesView.setText(meeting.getNumberOfAttendees() + " Attendees");
+                }
+                else {
+                    numberOfAttendeesView.setText(meeting.getNumberOfAttendees());
+                }
+                if (!meeting.getAverageAge().equalsIgnoreCase("Not Enough Feedback")) {
+                    averageAgeView.setText(meeting.getAverageAge() + " Years Old");
+                }
+                else {
+                    averageAgeView.setText(meeting.getAverageAge());
+                }
                 descriptionView.setText("The meeting is " + meeting.getDescriptions());
 
                 if (saved) {
@@ -99,7 +112,8 @@ public class DetailView extends AppCompatActivity {
                         savedView.setChecked(false);
                     }
                     else {
-                        mydb.insertContact(Integer.parseInt(key));
+                        mydb.insertContact(Integer.parseInt(key), currentMeeting.getName(), currentMeeting.getAddress(), currentMeeting.getTime(),
+                                currentMeeting.getAverageAge(), currentMeeting.getNumberOfAttendees());
                         savedView.setChecked(true);
                     }
                 }

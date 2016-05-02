@@ -142,6 +142,7 @@ public class MapView extends Fragment implements GoogleApiClient.ConnectionCallb
         }
 
         googleMap.setMyLocationEnabled(true);
+        googleMap.setInfoWindowAdapter(new FirstStepsInfoAdapter(inflater));
         // Create an instance of GoogleAPIClient.
         if (mGoogleApiClient == null) {
             mGoogleApiClient = new GoogleApiClient.Builder(getContext())
@@ -255,7 +256,7 @@ public class MapView extends Fragment implements GoogleApiClient.ConnectionCallb
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         Meeting meeting = dataSnapshot.getValue(Meeting.class);
-                        MarkerOptions newMarker = new MarkerOptions().position(new LatLng(latitude, longitude)).title(meeting.getName()).snippet(meeting.getTime()).icon(BitmapDescriptorFactory.fromResource(R.drawable.firststepslogomarker));
+                        MarkerOptions newMarker = new MarkerOptions().position(new LatLng(latitude, longitude)).title(meeting.getName()).snippet(meeting.getTime() + "\n" + meeting.getAverageAge() + "\n" + meeting.getNumberOfAttendees()).icon(BitmapDescriptorFactory.fromResource(R.drawable.firststepslogomarker));
                         Marker marker = googleMap.addMarker(newMarker);
                         mMarkers.put(marker.getId(), geoKey);
                     }

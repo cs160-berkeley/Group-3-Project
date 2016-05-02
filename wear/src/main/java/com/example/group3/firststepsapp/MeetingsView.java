@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v4.view.MotionEventCompat;
+import android.support.wearable.view.GridViewPager;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -17,25 +18,11 @@ public class MeetingsView extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meetings_view);
 
-        Button directionsButton = (Button) findViewById(R.id.button3);
-        directionsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
-                sendIntent.putExtra("extra", "directions");
-                startService(sendIntent);
-            }
-        });
-
-        Button saveButton = (Button) findViewById(R.id.button4);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
-                sendIntent.putExtra("extra", "alert");
-                startService(sendIntent);
-            }
-        });
+        final GridViewPager pager = (GridViewPager) findViewById(R.id.pager);
+        GridPagerAdapter gridpager = new GridPagerAdapter(this, getFragmentManager());
+        gridpager.setData(getIntent().getStringExtra("meetings"));
+        gridpager.makeData();
+        pager.setAdapter(gridpager);
 
     }
 

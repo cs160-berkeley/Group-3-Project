@@ -27,6 +27,7 @@ public class PhoneListenerService extends WearableListenerService {
     public void onMessageReceived(MessageEvent messageEvent) {
         Log.d("T", "in PhoneListenerService, got: " + messageEvent.getPath());
         String message = messageEvent.getPath();
+        String[] parsedMessage = messageEvent.getPath().split("/");
         if (Objects.equals(message, "location")) {
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new Runnable() {
@@ -65,7 +66,7 @@ public class PhoneListenerService extends WearableListenerService {
             sendIntent.putExtra("extra", "meetings");
             startService(sendIntent);
         }
-        else if (message.equalsIgnoreCase("directions")) {
+        else if (parsedMessage[0].equalsIgnoreCase("directions")) {
             // create a handler to post messages to the main thread
 //            Handler handler = new Handler(Looper.getMainLooper());
 //            handler.post(new Runnable() {
@@ -80,8 +81,7 @@ public class PhoneListenerService extends WearableListenerService {
 //                }
 //            });
 
-            String uri = String.format(Locale.ENGLISH, "geo:%f,%f", 37.85, -122.25);
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(parsedMessage[1]));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }

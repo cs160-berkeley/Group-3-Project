@@ -93,10 +93,11 @@ public class SavedMeetings extends Fragment {
         meetings = myFirebaseRef.child("meetings");
         mydb = new DBHelper(getContext());
 
-        ArrayList<Integer> saved_meetings = mydb.getAllSavedMeetings();
+        ArrayList<MeetingDB> saved_meetings = mydb.getAllSavedMeetings();
 
         for (int i = 0; i < saved_meetings.size(); i++) {
-            final String key = saved_meetings.get(i) + "";
+            MeetingDB currentMeeting = saved_meetings.get(i);
+            final String key = currentMeeting.getKey() + "";
             Firebase specificMeeting = meetings.child(key);
             specificMeeting.addValueEventListener(new ValueEventListener() {
                 @Override
