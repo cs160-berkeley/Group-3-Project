@@ -27,7 +27,6 @@ import com.firebase.client.ValueEventListener;
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.vision.barcode.Barcode;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -103,6 +102,7 @@ public class NewMeetingFrag extends Fragment {
         meetings = myFirebaseRef.child("meetings");
         geoFire = new GeoFire(geoFireRef);
         numberOfMeetings = myFirebaseRef.child("numberOfMeetings");
+        setHasOptionsMenu(false);
 
         View view = inflater.inflate(R.layout.fragment_new_meeting, container, false);
         Button detailButton = (Button) view.findViewById(R.id.button);

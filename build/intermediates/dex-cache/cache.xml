@@ -26,7 +26,7 @@
         jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="ad82e2cbd84986b11b57f5e1e8b8ca6b7f93f2fa">
+        sha1="ab39227b08328e62d54ba89763614bbf185e3867">
         <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_e060776987a9a33f83de9036c3d5627990347797/classes.dex" />
     </item>
     <item
@@ -61,7 +61,7 @@
         jar="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="3c12552843e20a2f3fd721b41a9a22116bc33780">
+        sha1="9739df1e6035a14063dc62e9028e99f11d7ccc06">
         <dex dex="/Users/Simon/Documents/Group-3-Project/wear/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_43e01dc48b4574c0d6b54bc2ca6fa937cad1c1f1/classes.dex" />
     </item>
 

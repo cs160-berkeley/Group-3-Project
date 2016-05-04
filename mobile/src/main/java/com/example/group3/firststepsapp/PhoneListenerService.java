@@ -28,26 +28,26 @@ public class PhoneListenerService extends WearableListenerService {
         Log.d("T", "in PhoneListenerService, got: " + messageEvent.getPath());
         String message = messageEvent.getPath();
         String[] parsedMessage = messageEvent.getPath().split("/");
-        if (Objects.equals(message, "location")) {
-            Handler handler = new Handler(Looper.getMainLooper());
-            handler.post(new Runnable() {
-
-                @Override
-                public void run() {
-                    Context context = getApplicationContext();
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, "Finding Nearest Meetings", duration);
-                    toast.show();
-                }
-            });
-
-            Context context = getApplicationContext();
-            Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
-            sendIntent.putExtra("extra", "location");
-            startService(sendIntent);
-        }
-        else if (message.equalsIgnoreCase("meetings")) {
+//        if (Objects.equals(message, "location")) {
+//            Handler handler = new Handler(Looper.getMainLooper());
+//            handler.post(new Runnable() {
+//
+//                @Override
+//                public void run() {
+//                    Context context = getApplicationContext();
+//                    int duration = Toast.LENGTH_SHORT;
+//
+//                    Toast toast = Toast.makeText(context, "Finding Nearest Meetings", duration);
+//                    toast.show();
+//                }
+//            });
+//
+//            Context context = getApplicationContext();
+//            Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+//            sendIntent.putExtra("extra", "location");
+//            startService(sendIntent);
+//        }
+         if (message.equalsIgnoreCase("meetings")) {
             Handler handler = new Handler(Looper.getMainLooper());
             handler.post(new Runnable() {
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class DetailView extends Activity {
 
@@ -13,22 +14,13 @@ public class DetailView extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_view);
 
-        Button directionsButton = (Button) findViewById(R.id.button3);
+        ImageButton directionsButton = (ImageButton) findViewById(R.id.imageButton3);
         directionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
                 sendIntent.putExtra("extra", "directions");
-                startService(sendIntent);
-            }
-        });
-
-        Button saveButton = (Button) findViewById(R.id.button4);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
-                sendIntent.putExtra("extra", "save");
+                sendIntent.putExtra("uri", "geo:0,0?q=2600 Bancroft Way,Berkeley,CA 94704");
                 startService(sendIntent);
             }
         });

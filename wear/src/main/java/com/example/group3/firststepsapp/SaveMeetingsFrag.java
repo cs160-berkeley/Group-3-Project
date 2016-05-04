@@ -80,7 +80,6 @@ public class SaveMeetingsFrag extends android.app.Fragment {
         TextView numpeopleView = (TextView) v.findViewById(R.id.textView5);
 
         ImageButton directions = (ImageButton) v.findViewById(R.id.imageButton3);
-        ImageButton alarm = (ImageButton) v.findViewById(R.id.imageButton4);
 
         directions.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,17 +88,6 @@ public class SaveMeetingsFrag extends android.app.Fragment {
                 Intent sendIntent = new Intent(getActivity(), WatchToPhoneService.class);
                 sendIntent.putExtra("extra", "directions");
                 sendIntent.putExtra("uri", uri);
-                getActivity().startService(sendIntent);
-
-            }
-        });
-
-        alarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String uri = "geo:0,0?q=" + address;
-                Intent sendIntent = new Intent(getActivity(), WatchToPhoneService.class);
-                sendIntent.putExtra("extra", "alarm");
                 getActivity().startService(sendIntent);
 
             }
@@ -114,12 +102,12 @@ public class SaveMeetingsFrag extends android.app.Fragment {
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+//    // TODO: Rename method, update argument and hook method into UI event
+//    public void onButtonPressed(Uri uri) {
+//        if (mListener != null) {
+//            mListener.onFragmentInteraction(uri);
+//        }
+//    }
 
     @Override
     public void onAttach(Context context) {
@@ -127,6 +115,7 @@ public class SaveMeetingsFrag extends android.app.Fragment {
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
+            System.out.println("WHY");
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
@@ -150,7 +139,7 @@ public class SaveMeetingsFrag extends android.app.Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+
     }
 
     public void setTitle(String title) {

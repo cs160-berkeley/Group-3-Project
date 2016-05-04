@@ -63,17 +63,23 @@ public class GridPagerAdapter extends FragmentGridPagerAdapter {
     }
 
     public void makeData() {
-        String[] meetings = data.split("/");
-        PAGES = new Page[1][meetings.length];
-        for (int i = 0; i < meetings.length; i++) {
-            String meeting = meetings[i];
-            System.out.println(meeting);
-            String[] meetingDetails = meeting.split("\\|");
-            System.out.println(meetingDetails[0]);
-            System.out.println(meetingDetails[1]);
-            System.out.println(meetingDetails[2]);
-            Page meetingPage = new Page(meetingDetails[0], meetingDetails[1], meetingDetails[2], meetingDetails[3], meetingDetails[4]);
-            PAGES[0][i] = meetingPage;
+        System.out.println("data" + this.data);
+        if (this.data.length() != 0) {
+            String[] meetings = data.split("/");
+            PAGES = new Page[1][meetings.length];
+            for (int i = 0; i < meetings.length; i++) {
+                String meeting = meetings[i];
+                System.out.println(meeting);
+                String[] meetingDetails = meeting.split("\\|");
+                System.out.println(meetingDetails[0]);
+                System.out.println(meetingDetails[1]);
+                System.out.println(meetingDetails[2]);
+                Page meetingPage = new Page(meetingDetails[0], meetingDetails[1], meetingDetails[2], meetingDetails[3], meetingDetails[4]);
+                PAGES[0][i] = meetingPage;
+            }
+        }
+        else {
+            PAGES = new Page[0][0];
         }
     }
 

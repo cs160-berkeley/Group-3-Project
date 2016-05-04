@@ -10,6 +10,7 @@ import com.google.android.gms.wearable.DataMapItem;
 import com.google.android.gms.wearable.Wearable;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -37,7 +38,8 @@ public class MapView extends WearableActivity {
         mapView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent mapIntent = new Intent(getBaseContext(), DetailView.class);
+                startActivity(mapIntent);
             }
         });
 

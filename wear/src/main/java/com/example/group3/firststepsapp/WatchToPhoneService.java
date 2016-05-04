@@ -82,7 +82,7 @@ public class WatchToPhoneService extends Service {
             public void run() {
                 //first, connect to the apiclient
                 mWatchApiClient.connect();
-
+                System.out.println(stringToSend);
                 sendMessage(stringToSend, "index");
             }
         }).start();
