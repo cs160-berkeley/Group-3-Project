@@ -1,5 +1,7 @@
 package com.example.group3.firststepsapp;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -7,6 +9,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -26,7 +29,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class DetailView extends AppCompatActivity {
+public class DetailView extends Activity {
 
     Firebase myFirebaseRef;
     private DBHelper mydb;
@@ -39,9 +42,11 @@ public class DetailView extends AppCompatActivity {
         setContentView(R.layout.activity_detail_view);
 
         myFirebaseRef = new Firebase("https://first-steps.firebaseio.com/");
+        Firebase geoFireRef = myFirebaseRef.child("geofire");
         Firebase meetings = myFirebaseRef.child("meetings");
         final String key = getIntent().getExtras().getString("key");
-        Firebase specificMeeting = meetings.child(key);
+        final Firebase specificMeeting = meetings.child(key);
+        final Firebase geoFireRefSpecific = geoFireRef.child(key);
 
         mydb = new DBHelper(this);
 
@@ -160,7 +165,27 @@ public class DetailView extends AppCompatActivity {
             {
                 public void onClick(View v) {
                     try {
-                        Toast.makeText(getBaseContext(), "Doesn't Exist Recorded", Toast.LENGTH_SHORT).show();
+                        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which){
+                                    case DialogInterface.BUTTON_POSITIVE:
+                                        specificMeeting.removeValue();
+                                        geoFireRefSpecific.removeValue();
+                                        break;
+
+                                    case DialogInterface.BUTTON_NEGATIVE:
+                                        dialog.dismiss();
+                                        break;
+                                }
+                            }
+                        };
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DetailView.this, R.style.MyAlertDialogStyle);
+                        TextView titleView = (TextView) findViewById(R.id.textView9);
+                        String nameMeeting = titleView.getText().toString();
+                        builder.setTitle("Delete " + nameMeeting).setMessage("Are you sure? This will delete " + nameMeeting + " permanently.").setPositiveButton("Yes", dialogClickListener)
+                                .setNegativeButton("No", dialogClickListener).show();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
